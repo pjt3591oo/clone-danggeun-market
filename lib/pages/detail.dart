@@ -266,14 +266,13 @@ class _DetailContentViewState extends State<DetailContentView> with SingleTicker
         children: [
           GestureDetector(
             onTap: () {
-              print("관심상품 이벤트 발생");
               setState(() {
                 isMyFavoriteContent = !isMyFavoriteContent;
-                scaffoldKey.currentState.showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     duration: Duration(milliseconds: 1000),
                     content: Text(isMyFavoriteContent? "관심목록에 추가되었습니다." : "관심목록에서 제거되었습니다.")
-                  )
+                  ),
                 );
               });
             },
