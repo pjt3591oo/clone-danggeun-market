@@ -11,7 +11,7 @@ class LocationLifeContentsRepository {
       "commentCnt": "5",
       "likeCnt": "3",
       "sadCnt": "2",
-      "imgPath": "https://dnvefa72aowie.cloudfront.net/origin/article/202106/9cfb351f824ad1f2368d8a1a870030c6d44ef379cb1c910e05db942dd4677fc9.webp?q=95&s=1440x1440&t=inside",
+      "imgPath": "https://lh3.googleusercontent.com/-m9zZm6abxGg/AAAAAAAAAAI/AAAAAAAAAD0/CGF2UYI-EtI/photo.jpg?sz=48",
     }, {
       "categoty": "동네맛집",
       "content": "문산에 파주페이 사용가능한 편의점말고 마트가 있을까요? 문산에 파주페이 사용가능한 편의점말고 마트가 있을까요? 문산에 파주페이 사용가능한 편의점말고 마트가 있을까요?",
@@ -21,7 +21,7 @@ class LocationLifeContentsRepository {
       "commentCnt": "5",
       "likeCnt": "3",
       "sadCnt": "2",
-      "imgPath": "https://dnvefa72aowie.cloudfront.net/origin/article/202106/9cfb351f824ad1f2368d8a1a870030c6d44ef379cb1c910e05db942dd4677fc9.webp?q=95&s=1440x1440&t=inside",
+      "imgPath": "https://lh3.googleusercontent.com/-m9zZm6abxGg/AAAAAAAAAAI/AAAAAAAAAD0/CGF2UYI-EtI/photo.jpg?sz=48",
     }, {
       "categoty": "강아지",
       "content": "문산에 파주페이 사용가능한 편의점말고 마트가 있을까요?",
@@ -31,7 +31,7 @@ class LocationLifeContentsRepository {
       "commentCnt": "5",
       "likeCnt": "3",
       "sadCnt": "2",
-      "imgPath": "https://dnvefa72aowie.cloudfront.net/origin/article/202106/9cfb351f824ad1f2368d8a1a870030c6d44ef379cb1c910e05db942dd4677fc9.webp?q=95&s=1440x1440&t=inside",
+      "imgPath": "https://lh3.googleusercontent.com/-m9zZm6abxGg/AAAAAAAAAAI/AAAAAAAAAD0/CGF2UYI-EtI/photo.jpg?sz=48",
     }, {
       "categoty": "동네맛집",
       "content": "문산에 파주페이 사용가능한 편의점말고 마트가 있을까요?",
@@ -41,7 +41,7 @@ class LocationLifeContentsRepository {
       "commentCnt": "5",
       "likeCnt": "3",
       "sadCnt": "2",
-      "imgPath": "https://dnvefa72aowie.cloudfront.net/origin/article/202106/9cfb351f824ad1f2368d8a1a870030c6d44ef379cb1c910e05db942dd4677fc9.webp?q=95&s=1440x1440&t=inside",
+      "imgPath": "https://lh3.googleusercontent.com/-m9zZm6abxGg/AAAAAAAAAAI/AAAAAAAAAD0/CGF2UYI-EtI/photo.jpg?sz=48",
     }
   ] ;
 
@@ -51,9 +51,9 @@ class LocationLifeContentsRepository {
     Random random = new Random();
     int responseTime = min + random.nextInt(max - min);
 
-    await Future.delayed(
-      Duration(milliseconds: responseTime), 
-    );
+    // await Future.delayed(
+    //   Duration(milliseconds: responseTime), 
+    // );
     return datas;
   } 
 }
