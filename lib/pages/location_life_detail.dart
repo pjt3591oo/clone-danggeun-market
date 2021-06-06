@@ -133,11 +133,13 @@ class _LocationLifeDetailState extends State<LocationLifeDetail> {
               delegate: SliverChildBuilderDelegate( (context, index) => Container(
                 padding: EdgeInsets.all(12),
                 child: CommentWidget(comment: datas[index],),
-
               ), 
               childCount: datas.length
               ),
-            )
+            ),
+            SliverList(delegate: SliverChildListDelegate([
+              _bottomNavigationBarWidget(MediaQuery.of(context).size)
+            ])),
           ],
         );
       },
@@ -204,15 +206,12 @@ class _LocationLifeDetailState extends State<LocationLifeDetail> {
               decoration: BoxDecoration(
                 color: Color(0xffF2F3F7),
                 borderRadius: BorderRadius.circular(36),
-                // border: Border.all(
-                //   color: Color(0xffF2F3F7),
-                //   // width: 2,
-                // )
+                border: Border.all(
+                  color: Color(0xffF2F3F7),
+                )
               ),
               
-              // child: Text("답글을 입력해 주세요.", style: TextStyle(color: Color(0xffAdAdAd))),
               child: TextField(
-                // obscureText: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderSide: BorderSide(color: Color(0xffF2F3F7))
@@ -238,9 +237,10 @@ class _LocationLifeDetailState extends State<LocationLifeDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: _appBar(),
       body: _bodyWidget(),
-      bottomNavigationBar: _bottomNavigationBarWidget(MediaQuery.of(context).size),
+      // bottomNavigationBar: _bottomNavigationBarWidget(MediaQuery.of(context).size),
     );
   }
 }
