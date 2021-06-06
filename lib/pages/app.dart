@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:carrot_matket/pages/home.dart';
+import 'package:carrot_matket/pages/locationLife.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -17,14 +18,13 @@ class _AppState extends State<App> {
     super.initState();
   }
 
-
   Widget _bodyWidget() {
     switch (_currentPageIndex) {
       case 0:
         return Home();
         break;
       case 1:
-        return Container();
+        return LocationLife();
         break;
       case 2:
         return Container();
