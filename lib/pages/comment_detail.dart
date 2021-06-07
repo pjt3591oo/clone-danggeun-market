@@ -1,20 +1,18 @@
-import 'package:carrot_matket/pages/comment_detail.dart';
 import 'package:carrot_matket/repository/comment_repository.dart';
 import 'package:flutter/material.dart';
 
-class CommentWidget extends StatefulWidget {
+class CommentDetail extends StatefulWidget {
   MainComment comment;
-
-  CommentWidget({Key key, this.comment}) : super(key: key);
+  
+  CommentDetail({Key key, this.comment}) : super(key: key);
 
   @override
-  _CommentState createState() => _CommentState();
+  _CommentDetailState createState() => _CommentDetailState();
 }
 
-class _CommentState extends State<CommentWidget> {
+class _CommentDetailState extends State<CommentDetail> {
   
   Widget _subComment(List<SubComment> subComments) {
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -47,43 +45,14 @@ class _CommentState extends State<CommentWidget> {
           )
         ).toList(),
 
-        Row(
-          children: [
-            CircleAvatar(radius: 18, backgroundImage: Image.asset("assets/images/user.png",).image,),
-            SizedBox(width: 14),
-            Container(
-              width: MediaQuery.of(context).size.width - 125 ,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: Color(0xffF2f3f6),
-                  width: 2,
-                )
-              ),
-              
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(context, 
-                    MaterialPageRoute(builder: (BuildContext context) {
-                      return CommentDetail(comment: widget.comment);
-                    })
-                  );
-                },
-                child: Text("답글을 입력해 주세요.", style: TextStyle(color: Color(0x66000000))),
-              ),
-
-            )
-          ],
-        ),
-        // Expanded( child: Text("test"))
       ]
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
+  Widget _bodyWidget(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CircleAvatar(radius: 18, backgroundImage: Image.asset("assets/images/user.png").image,),
@@ -101,18 +70,6 @@ class _CommentState extends State<CommentWidget> {
               children:[
                 Text('좋아요 ${widget.comment.likeCnt.toString()}', style: TextStyle( color: Color(0xff9C9C9C))),
                 SizedBox(width: 12),
-                
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context, 
-                      MaterialPageRoute(builder: (BuildContext context) {
-                        return CommentDetail(comment: widget.comment);
-                      })
-                    );
-                  },
-                  child: Text('답글쓰기', style: TextStyle( color: Color(0xff9C9C9C)))
-                ),
-
               ]
             ),
 
@@ -122,7 +79,66 @@ class _CommentState extends State<CommentWidget> {
           ],
         )
       ],
+    )
     );
   }
 
+  Widget _bottomNavigationBarWidget(Size size) {
+    return Container(
+      width: size.width,
+      height: 54,
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Row(
+        children: [
+          Icon(Icons.room_outlined),
+          SizedBox(width: 10),
+          Icon(Icons.photo_outlined),
+          SizedBox(width: 10),
+          Expanded(
+            child: Container(
+              // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+              decoration: BoxDecoration(
+                color: Color(0xffF2F3F7),
+                borderRadius: BorderRadius.circular(36),
+                border: Border.all(
+                  color: Color(0xffF2F3F7),
+                )
+              ),
+              
+              child: TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xffF2F3F7))
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xffF2F3F7))
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    // borderRadius: BorderRadius.circular(10.0),
+                    borderSide: BorderSide(color: Color(0xffF2F3F7))
+                  ),
+                  hintText: "댓글을 입력해주세요.",
+                  hintStyle: TextStyle(fontSize: 16,color: Color(0xFFADADAD))
+                ),
+              )
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        elevation: 0,
+        title: Text('답글쓰기'),
+        centerTitle: false,
+      ),
+      body: _bodyWidget(context),
+      bottomNavigationBar: _bottomNavigationBarWidget(MediaQuery.of(context).size),
+    );
+  }
 }

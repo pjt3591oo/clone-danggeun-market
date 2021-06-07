@@ -240,7 +240,6 @@ class _LocationLifeDetailState extends State<LocationLifeDetail> {
       resizeToAvoidBottomInset: true,
       appBar: _appBar(),
       body: _bodyWidget(),
-      // bottomNavigationBar: _bottomNavigationBarWidget(MediaQuery.of(context).size),
     );
   }
 }
