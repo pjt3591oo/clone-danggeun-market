@@ -106,7 +106,6 @@ class _LocationLifeState extends State<LocationLife> {
 
 
   Widget _makeDataItem(List<Map<String, String>> datas) {
-    
     return CustomScrollView(
       controller: _controller,
       slivers: [
@@ -148,19 +147,26 @@ class _LocationLifeState extends State<LocationLife> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        padding: EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          // border: Border.all(color: Color(0xffDCDCDC)),
-                          borderRadius: BorderRadius.circular(5),
-                          color: Color(0xffF2f3f6),
-                        ),
-                        child: Text(datas[index]["categoty"], style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xff9496a2),
-                          fontSize: 12,
-                          // backgroundColor: Color(0xfff2f2f2),
-                        )),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.all(6),
+                            decoration: BoxDecoration(
+                              // border: Border.all(color: Color(0xffDCDCDC)),
+                              borderRadius: BorderRadius.circular(5),
+                              color: Color(0xffF2f3f6),
+                            ),
+                            child: Text(datas[index]["categoty"], style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff9496a2),
+                              fontSize: 12,
+                              // backgroundColor: Color(0xfff2f2f2),
+                            )),
+                          ),
+                          
+                          Icon(Icons.more_vert)
+                        ],
                       ),
                       GestureDetector(
                         onTap: () {
