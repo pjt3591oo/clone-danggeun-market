@@ -167,31 +167,47 @@ class _LocationLifeState extends State<LocationLife> {
                           GestureDetector(
                             onTap: () {
                               showModalBottomSheet(
-                                isScrollControlled: false,  // 내부에 ListView or GirdView로 인해 스크롤 여부 (default: false)
-                                isDismissible: true,        // 탭할 때 하단 시트를 닫을 지 여부를 지정           (default: true)
-                                enableDrag: true,           // 하단 시트를 위아래로 드래그하고 아래로 스 와이프하여 닫을 수 있는지 여부 (default: true)
+                                isScrollControlled: false,   // 내부에 ListView or GirdView로 인해 스크롤 여부 (default: false)
+                                isDismissible: false,        // 탭할 때 하단 시트를 닫을 지 여부를 지정           (default: true)
+                                enableDrag: true,            // 하단 시트를 위아래로 드래그하고 아래로 스 와이프하여 닫을 수 있는지 여부 (default: true)
                                 context: context, 
                                 builder: (BuildContext context) {
                                   return Container(
-                                    height: 120,
+                                    height: 185,
+                                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 12),
                                     child: Column(
                                       children:[
+                                        Center(
+                                          child: SizedBox(
+                                            height: 4, 
+                                            width: 66, 
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xffd2d2d2),
+                                                borderRadius: BorderRadius.circular(36),
+                                                border: Border.all(
+                                                  color: Color(0xffd2d2d2),
+                                                )
+                                              )
+                                            )
+                                          ),
+                                        ),
                                         Container(
-                                          height: 36,
+                                          height: 48,
                                           child: Row(
-                                            children: [Text("1"), Text("2")]
+                                            children: [Icon(Icons.mode_edit), Text("수정하기")]
                                           ),
                                         ), 
                                         Container(
-                                          height: 36,
+                                          height: 48,
                                           child: Row(
-                                            children: [Text("1"), Text("2")]
+                                            children: [Icon(Icons.delete), Text("삭제하기")]
                                           ),
                                         ), 
                                         Container(
-                                          height: 36,
+                                          height: 48,
                                           child: Row(
-                                            children: [Text("1"), Text("2")]
+                                            children: [Icon(Icons.notifications), Text("신고하기")]
                                           ),
                                         ), 
                                         
