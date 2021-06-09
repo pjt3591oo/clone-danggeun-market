@@ -164,8 +164,46 @@ class _LocationLifeState extends State<LocationLife> {
                               // backgroundColor: Color(0xfff2f2f2),
                             )),
                           ),
+                          GestureDetector(
+                            onTap: () {
+                              showModalBottomSheet(
+                                isScrollControlled: false,  // 내부에 ListView or GirdView로 인해 스크롤 여부 (default: false)
+                                isDismissible: true,        // 탭할 때 하단 시트를 닫을 지 여부를 지정           (default: true)
+                                enableDrag: true,           // 하단 시트를 위아래로 드래그하고 아래로 스 와이프하여 닫을 수 있는지 여부 (default: true)
+                                context: context, 
+                                builder: (BuildContext context) {
+                                  return Container(
+                                    height: 120,
+                                    child: Column(
+                                      children:[
+                                        Container(
+                                          height: 36,
+                                          child: Row(
+                                            children: [Text("1"), Text("2")]
+                                          ),
+                                        ), 
+                                        Container(
+                                          height: 36,
+                                          child: Row(
+                                            children: [Text("1"), Text("2")]
+                                          ),
+                                        ), 
+                                        Container(
+                                          height: 36,
+                                          child: Row(
+                                            children: [Text("1"), Text("2")]
+                                          ),
+                                        ), 
+                                        
+                                      ]
+                                    )
+                                  );
+                                }
+                              );
+                            },
+                            child: Icon(Icons.more_vert)
+                          )
                           
-                          Icon(Icons.more_vert)
                         ],
                       ),
                       GestureDetector(
